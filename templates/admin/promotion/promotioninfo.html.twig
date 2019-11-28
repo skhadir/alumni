@@ -1,0 +1,11 @@
+{% extends 'admin/index.html.twig' %}
+
+{% block body %}
+    <h2>Promotions</h2>
+
+    <li>{{ promotion.degree.name }} - {{ promotion.year.title }}</li>
+    <li>{{ promotion.startdate }}</li>
+    <li>{{ promotion.enddate }}</li>
+
+
+{% endblock %}

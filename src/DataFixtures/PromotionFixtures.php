@@ -6,6 +6,7 @@ use App\Entity\Promotion;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
+use Faker\Factory;
 
 class PromotionFixtures extends BaseFixture implements DependentFixtureInterface
 {
@@ -16,9 +17,13 @@ class PromotionFixtures extends BaseFixture implements DependentFixtureInterface
 
         $cpt=0;
 
+        $faker = Factory::create('fr_FR');
+
         foreach ($degrees as $degree){
             foreach ($years as $year){
                 $promotion = new Promotion();
+                $promotion ->setStartDate('1 Septembre');
+                $promotion ->setEndDate('30 mai');
                 $promotion->setDegree($degree);
                 $promotion->setYear($year);
                 $manager->persist($promotion);
