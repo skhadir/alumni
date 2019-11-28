@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{%  block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/home.css') }}">
+{% endblock %}
+
+{%  block body %}
+
+
+    <div class="presentation">
+        <div class="text">
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi mollis auctor felis non condimentum. Cras ultricies neque at lacinia malesuada. Donec ut neque nec ipsum tempor accumsan. Suspendisse fermentum iaculis imperdiet. Suspendisse venenatis erat id consectetur tempor. Praesent iaculis ultricies nisi eu cursus. Duis dictum purus at arcu dictum rhoncus et ac tellus. Fusce cursus vel enim ut malesuada. Vivamus sed odio ut ex vehicula auctor. Etiam venenatis urna vel libero venenatis, non pulvinar purus ultricies. Vivamus maximus quam nec quam rutrum tempor. Donec a viverra felis, ac viverra ex. Duis semper vestibulum sem ut varius.
+
+                Nunc non auctor urna. Vivamus sed dolor maximus, accumsan lectus vel, lacinia magna. Aliquam ac lectus a ipsum vestibulum mollis cursus ut nulla. Proin a neque dolor. Etiam iaculis dapibus arcu, quis finibus urna rhoncus et. Sed ullamcorper nisl lobortis accumsan pharetra. Vestibulum et pulvinar risus, vestibulum interdum eros. Aliquam dictum porta est a tincidunt. Nam id nisl non ante aliquam euismod vel in sapien. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eleifend eu augue nec sagittis. Nullam cursus dolor leo, a rhoncus diam tincidunt sit amet.
+
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lobortis tellus ac ornare viverra. Mauris interdum tortor ante, quis tristique dolor tincidunt quis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec feugiat ut turpis mollis vestibulum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus quis urna sed neque pharetra pulvinar. Duis ullamcorper efficitur velit. Morbi eu diam vel urna dapibus feugiat. Nunc ac diam non est lobortis dapibus ut in sapien. Duis auctor dui in arcu tristique viverra. Suspendisse rutrum rhoncus leo, sodales consectetur magna maximus sed. Maecenas porttitor dui a purus ullamcorper dapibus. Nam ornare quis eros hendrerit scelerisque.
+            </p>
+        </div>
+    </div>
+    <div class="contain-form">
+        <form class="select" method="post" action={{ path('home.index') }}>
+            <select id="formation" name="degree">
+                <option value="">-- Choisissez une formation --</option>
+                {% for degree in degrees %}
+                    <option value="{{ degree.id }}">{{ degree.name }}</option>
+                {% endfor %}
+            </select>
+            <select id="year" name="year">
+                <option value="">-- Choisissez une année --</option>
+                {% for year in years %}
+                    <option value="{{ year.id }}">{{ year.title }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit">OK</button>
+        </form>
+    </div>
+    <div class="container">
+        {% if users is not empty %}
+            {% for user in users %}
+                <div class="contain">
+                    <div class="contain-user">
+                        <p>{{ user.firstname }}</p>
+                        <p>{{ user.lastname }}</p>
+                        <p>{{ user.email }}</p>
+                        <li>
+                            <a href="{{ path('alumni.index', {"id": user.id, "slug":user.slug}) }}">
+                                {{ user.lastname }} {{ user.firstname }}
+                            </a>
+                        </li>
+
+                    </div>
+                    <div class="contain-avatar">
+                        <img src="{{ asset("upload/avatar/"~ user.avatar) }}" alt="">
+                    </div>
+                </div>
+
+            {% endfor %}
+        {%  endif %}
+    </div>
+
+
+{%  endblock %}

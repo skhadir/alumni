@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {%  block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('css/home.css') }}">
+        {% endblock %}
+    </head>
+    <body>
+    <div class="wrapper">
+        <div class="contain-nav">
+            <img id="logo" src="{{ asset('images/logoLeGreta.png') }}" alt="logo">
+            <label for="toggle">&#9776;</label>
+            <input type="checkbox" id="toggle">
+            <div class="dropdown">
+                <li>
+                    <a href="#">ACCUEIL</a>
+                </li>
+                <li>
+                    <a href="#">FORMATIONS</a>
+                </li>
+                <li>
+                    <a href="#">MON COMPTE</a>
+                </li>
+                <li>
+                    {% include 'security/_login2.html.twig' %}
+                </li>
+            </div>
+            <div class="connect">
+               {% include 'security/_menu.html.twig' %}
+
+            </div>
+        </div>
+    </div>
+        {% block body %}
+
+           {% endblock %}
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>
+
+
+<!-- HEADER -->
