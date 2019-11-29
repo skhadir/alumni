@@ -43,6 +43,7 @@
                         <p>{{ user.firstname }}</p>
                         <p>{{ user.lastname }}</p>
                         <p>{{ user.email }}</p>
+                        <p>{{ user.birthdate|date('Y-m-d') }}</p>
                         <li>
                             <a href="{{ path('alumni.index', {"id": user.id, "slug":user.slug}) }}">
                                 {{ user.lastname }} {{ user.firstname }}

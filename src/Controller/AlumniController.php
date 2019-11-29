@@ -14,7 +14,7 @@ class AlumniController extends AbstractController
      */
     public function index(User $user, $slug)
     {
-        return $this->render('alumni/index.html.twig',['user'=>$user]);
+        return $this->render('alumni/index.html.twig',['user'=>$user,]);
     }
 
 

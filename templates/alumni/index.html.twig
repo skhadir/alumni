@@ -8,22 +8,43 @@
 
 
     <h1>Fiche personnelle</h1>
-    <div class="fiche">
-            {% for user in users %}
-                <div class="contain">
-                    <div class="contain-user">
-                        <p>{{ user.firstname }}</p>
-                        <p>{{ user.lastname }}</p>
-                        <p>{{ user.email }}</p>
-                        <p>{{ user.slug }}</p>
+{#    <div class="fiche">#}
+{#            {% for user in users %}#}
+{#                <div class="contain">#}
+{#                    <div class="contain-user">#}
+{#                        <p>{{ user.firstname }}</p>#}
+{#                        <p>{{ user.lastname }}</p>#}
+{#                        <p>{{ user.email }}</p>#}
+{#                        <p>{{ user.slug }}</p>#}
+{#                    </div>#}
+{#                    <div class="contain-avatar">#}
+{#                        <img src="{{ asset("upload/avatar/"~ user.avatar) }}" alt="">#}
+{#                    </div>#}
+{#                </div>#}
 
-                    </div>
-                    <div class="contain-avatar">
-                        <img src="{{ asset("upload/avatar/"~ user.avatar) }}" alt="">
-                    </div>
+{#            {% endfor %}#}
+{#    </div>#}
+
+    <div id="container-cards">
+
+        <div class="container-card">
+            <div class="card">
+                <div class="image-box">
+                    <img src="{{ asset("upload/avatar/"~ user.avatar) }}" alt="">
                 </div>
+                <ul class="social-icons">
+                    <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fab fa-google-plus" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
+                </ul>
+                <div class="card-details">
+                    <h1>{{ user.firstname}} {{ user.lastname }}<br><span></span></h1>
+                </div>
+            </div>
+        </div>
 
-            {% endfor %}
     </div>
 
 

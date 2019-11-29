@@ -1,13 +1,22 @@
-{% extends 'admin/index.html.twig' %}
+{% extends 'admin/base.html.twig' %}
+
 {% block body %}
-    <h2>Promotions</h2>
-
-    {% for promotion in promotions %}
-            <li>
-                <a href="{{ path('') }}" {{ promotion.degree.name }} - {{ promotion.year.title }}
-            </li>
-            <li>{{ promotion.startdate }}</li>
-            <li>{{ promotion.enddate }}</li>
-    {% endfor %}
-
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Promotions</th>
+            <th scope="col">Début de formation</th>
+            <th scope="col">Fin de Formation</th>
+            <th scope="col">Notes</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ promotion.degree.name }} - {{ promotion.year.title }}</td>
+                <td>{{ promotion.startdate|date('Y-m-d') }}</td>
+                <td>{{ promotion.enddate|date('Y-m-d') }}</td>
+                <td>{{ promotion.notes }}</td>
+            </tr>
+        </tbody>
+    </table>
 {% endblock %}

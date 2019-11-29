@@ -22,8 +22,8 @@ class PromotionFixtures extends BaseFixture implements DependentFixtureInterface
         foreach ($degrees as $degree){
             foreach ($years as $year){
                 $promotion = new Promotion();
-                $promotion ->setStartDate('1 Septembre');
-                $promotion ->setEndDate('30 mai');
+                $promotion ->setStartDate(new \DateTime(rand(2009,2020) . '-' . $faker->month . '-' . $faker->dayOfMonth));
+                $promotion ->setEndDate(new \DateTime(rand(2009,2020) . '-' . $faker->month . '-' . $faker->dayOfMonth));
                 $promotion->setDegree($degree);
                 $promotion->setYear($year);
                 $manager->persist($promotion);

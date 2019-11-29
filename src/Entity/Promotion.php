@@ -37,15 +37,16 @@ class Promotion
      */
     private $users;
 
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $StartDate;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="date", nullable=true)
      */
-    private $EndDate;
+    private $startDate;
+
+    /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    private $endDate;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -115,26 +116,26 @@ class Promotion
         return $this;
     }
 
-    public function getStartDate(): ?string
+    public function getStartDate(): ?\DateTimeInterface
     {
-        return $this->StartDate;
+        return $this->startDate;
     }
 
-    public function setStartDate(?string $StartDate): self
+    public function setStartDate(?\DateTimeInterface $startDate): self
     {
-        $this->StartDate = $StartDate;
+        $this->startDate = $startDate;
 
         return $this;
     }
 
-    public function getEndDate(): ?string
+    public function getEndDate(): ?\DateTimeInterface
     {
-        return $this->EndDate;
+        return $this->endDate;
     }
 
-    public function setEndDate(?string $EndDate): self
+    public function setEndDate(?\DateTimeInterface $endDate): self
     {
-        $this->EndDate = $EndDate;
+        $this->endDate = $endDate;
 
         return $this;
     }
@@ -150,6 +151,7 @@ class Promotion
 
         return $this;
     }
+
 
 
 }

@@ -97,12 +97,16 @@
                         <th scope="col">Promotions</th>
                         <th scope="col">Modifier</th>
                         <th scope="col">Supprimer</th>
+                        <th scope="col">Début de formation</th>
+                        <th scope="col">Fin de Formation</th>
                     </tr>
                     </thead>
                     <tbody>
                         {% for promotion in promotions %}
                             <tr id="promotion-{{ promotion.id }}">
-                                <td>{{ promotion.degree.name }} - {{ promotion.year.title }}</td>
+                                <td>
+                                    <a href="{{ path('admin.promotion.show',{"id":promotion.id}) }}">{{ promotion.degree.name }} - {{ promotion.year.title }}</a>
+                                </td>
                                 <td>
                                     <a  href="{{ path('admin.promotion.edit', {"id":promotion.id}) }}">
                                         <i class="far fa-edit"></i>
@@ -113,6 +117,8 @@
                                         <i class="far fa-trash-alt"></i>
                                     </a>
                                 </td>
+                                <td>{{ promotion.startdate|date('Y-m-d') }}</td>
+                                <td>{{ promotion.enddate|date('Y-m-d') }}</td>
                             </tr>
                         {% endfor %}
                     </tbody>

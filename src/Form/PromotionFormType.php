@@ -5,9 +5,10 @@ namespace App\Form;
 use App\Entity\Degree;
 use App\Entity\Promotion;
 use App\Entity\Year;
-use Doctrine\DBAL\Types\TextType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -27,11 +28,14 @@ class PromotionFormType extends AbstractType
                 'class' => Year::class,
                 'choice_label' => 'title'
             ])
-            ->add('startDate', EntityType::class, [
-                'label' => 'Année associé'
+            ->add('startDate',  DateTimeType::class, [
+                'label' => 'Début d\'année'
             ])
-            ->add('endDate', EntityType::class, [
-                'label' => 'Année associé'
+            ->add('endDate',  DateTimeType::class, [
+                'label' => 'Fin d\'année'
+            ])
+            ->add('notes', TextType::class, [
+                'label' => 'Notes'
             ])
 
         ;
