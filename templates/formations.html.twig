@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h2>Formations</h2>
+    <ul>
+        {% for degree in degrees %}
+            <li>
+                <a href="{{ path('formation.index', {"id": degree.id}) }}">
+                    {{ degree.name }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

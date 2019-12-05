@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Formation</th>
+            <th scope="col">Lien vers la formation</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{ degree.name }}</td>
+            <td><a href="{{ degree.repository }}">{{ degree.repository }}</a></td>
+        </tr>
+        </tbody>
+    </table>
+{% endblock %}

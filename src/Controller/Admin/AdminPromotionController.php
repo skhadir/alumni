@@ -88,7 +88,7 @@ class AdminPromotionController extends AbstractController{
 
     public function show(Promotion $promotion)
     {
-        return $this->render('admin/promotion/promotion.html.twig', ['promotion'=>$promotion]);
+        return $this->render('admin/promotion/adminpromo.html.twig', ['promotion'=>$promotion]);
     }
 }
 

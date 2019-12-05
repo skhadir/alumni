@@ -17,8 +17,11 @@ class DegreeFormType extends AbstractType
             ->add('name', TextType::class, [
                 'label' => 'Nom de la formation',
                 'constraints'=>[
-                    new NotBlank(['message'=> 'Entrez le nom de la formation'])
-                ]
+                    new NotBlank(['message'=> 'Entrez le nom de la formation'])]
+            ])
+            ->add('repository', TextType::class, [
+                    'label' => 'Lien vers la formation',
+                'required'=>false
             ]);
     }
 

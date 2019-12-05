@@ -8,6 +8,7 @@ use App\Entity\Year;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -34,7 +35,7 @@ class PromotionFormType extends AbstractType
             ->add('endDate',  DateTimeType::class, [
                 'label' => 'Fin d\'année'
             ])
-            ->add('notes', TextType::class, [
+            ->add('notes', TextareaType::class, [
                 'label' => 'Notes'
             ])
 
